@@ -19,7 +19,7 @@ class GitLab_Downloader
 	end
 
 	def user_projects
-		p = @glClient.projects
+		p = @glClient.projects({per_page: 10000, page: 0, scope: "all"})
 		p.each do |x|
 			x = x.to_h
 		end
